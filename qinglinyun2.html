@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        background-color: #eee;
+      }
+      .flex {
+        display: flex;
+      }
+      .flex1 {
+        flex: 1;
+      }
+      .flex3 {
+        flex: 3;
+      }
+      .baise {
+        background-color: white;
+      }
+      .marl {
+        margin-left: 8px;
+      }
+      .marr {
+        margin-right: 8px;
+      }
+      .marg {
+        margin: 8px;
+      }
+      .mart {
+        margin-top: 8px;
+      }
+      .yinying {
+        box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.15),
+          inset 5px 5px 5px rgba(255, 255, 255, 0.75),
+          -5px -5px 3px rgba(255, 255, 255, 0.55),
+          inset -2px -2px 2px rgba(0, 0, 0, 0.2);
+      }
+      @media (max-width: 600px) {
+        .cebian {
+          display: none;
+        }
+        .neirong {
+          flex-direction: column;
+        }
+        .youbian {
+          flex-direction: column;
+        }
+      }
+      .avatar-bar {
+        position: relative;
+        padding: 10px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .avatar-bar::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0px; /* 控制左边留白0 */
+        right: 20px; /* 控制右边留白 */
+        height: 1px;
+        background-color: #999;
+      }
+    </style>
+  </head>
+  <body class="flex" style="height: 100%; background-color: #eee">
+    <!-- 列表区 -->
+    <div
+      class="flex yinying cebian"
+      style="
+        z-index: 2;
+        width: 200px;
+        background-color: white;
+        flex-direction: column;
+      "
+    >
+      <!-- 头像栏 -->
+      <div
+        class="flex avatar-bar"
+        style="
+          width: 200px;
+          height: 38px;
+          align-items: center;
+          justify-content: center;
+          padding: 10px;
+        "
+      >
+        <img
+          style="width: 40px; height: 40px; border-radius: 60px"
+          src="data:image/webp;base64,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"
+          alt="祺祺猪"
+        />
+        <div style="margin-left: 10px">祺祺猪</div>
+      </div>
+      <div class="flex1 flex" style="flex-direction: column">
+        <div
+          style="
+            padding: 10px 20px;
+            border-bottom: 1px solid rgb(190, 190, 190);
+            font-size: 14px;
+            color: #757070;
+          "
+        >
+          导航
+        </div>
+        <div
+          style="
+            padding: 10px 20px;
+            border-bottom: 1px solid rgb(190, 190, 190);
+            font-size: 14px;
+            color: #757070;
+          "
+        >
+          导航
+        </div>
+        <div
+          style="
+            padding: 10px 20px;
+            border-bottom: 1px solid rgb(190, 190, 190);
+            font-size: 14px;
+            color: #757070;
+          "
+        >
+          导航
+        </div>
+        <div
+          style="
+            padding: 10px 20px;
+            border-bottom: 1px solid rgb(190, 190, 190);
+            font-size: 14px;
+            color: #757070;
+          "
+        >
+          导航
+        </div>
+        <div
+          style="
+            padding: 10px 20px;
+            border-bottom: 1px solid rgb(190, 190, 190);
+            font-size: 14px;
+            color: #757070;
+          "
+        >
+          导航
+        </div>
+        <div
+          style="
+            padding: 10px 20px;
+            border-bottom: 1px solid rgb(190, 190, 190);
+            font-size: 14px;
+            color: #757070;
+          "
+        >
+          导航
+        </div>
+      </div>
+    </div>
+    <!-- 主区域 -->
+    <div class="flex1 flex" style="flex-direction: column">
+      <!-- 标题区 -->
+      <div style="height: 60px; z-index: 1" class="baise yinying marl"></div>
+      <!-- 内容区 -->
+      <div class="flex1 flex neirong" style="flex-direction: row">
+        <!-- 左边 -->
+        <div class="flex flex3 marg" style="flex-direction: column">
+          <div class="flex" style="flex-direction: row; height: 100px">
+            <div class="flex1 marr baise yinying"></div>
+            <div class="flex1 marr baise yinying"></div>
+            <div class="flex1 marr baise yinying"></div>
+            <div class="flex1 baise yinying"></div>
+          </div>
+          <div class="baise yinying mart" style="height: 160px"></div>
+          <div class="baise yinying mart" style="height: 160px"></div>
+          <div class="baise yinying mart" style="height: 160px"></div>
+          <div class="baise yinying mart" style="height: 160px"></div>
+          <div class="baise yinying mart" style="height: 160px"></div>
+          <div class="baise yinying mart" style="height: 160px"></div>
+          <div class="baise yinying mart" style="height: 160px"></div>
+        </div>
+        <!-- 右边 -->
+        <div class="flex flex1 youbian" style="flex-direction: column">
+          <!-- 上半部分 -->
+          <div style="height: 150px" class="baise yinying mart"></div>
+          <div style="height: 300px" class="baise yinying mart"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
